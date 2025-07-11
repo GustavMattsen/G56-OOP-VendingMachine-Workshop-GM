@@ -13,7 +13,7 @@ public class Main {
         //Add them to an array
         Product[] products = { candy, soda, chips };
 
-        //Create a few vending machine
+        //Create a vending machine
         VendingMachineImpl vm = new VendingMachineImpl(products);
 
         //Display all products
@@ -22,16 +22,17 @@ public class Main {
             System.out.println(info);
         }
 
-        System.out.println("\n--- Testing vending machine ---");
+        System.out.println("\n---Testing vending machine---");
 
         //Add valid currency
         vm.addCurrency(20);
         System.out.println("Balance after deposit: " + vm.getBalance() + " SEK");
 
-        //Request a product
+        //Attempt to purchase a product
         Product boughtProduct = vm.request(1); //ID 1 = Mint Candy
         if (boughtProduct != null) {
-            System.out.println("You bought: " + boughtProduct.getProductName());
+            System.out.println("You have purchased: " + boughtProduct.getProductName());
+            System.out.println("Usage: " + boughtProduct.use());
         }
 
         //Get a description of a product
